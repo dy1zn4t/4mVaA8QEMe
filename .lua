@@ -482,7 +482,7 @@ function Chloex:Window(GuiConfig)
 
     local GuiFunc = {}
 
-    local Chloeex = Instance.new("ScreenGui");
+    local NatUI = Instance.new("ScreenGui");
     local DropShadowHolder = Instance.new("Frame");
     local DropShadow = Instance.new("ImageLabel");
     local Main = Instance.new("Frame");
@@ -505,10 +505,10 @@ function Chloex:Window(GuiConfig)
     local LayersFolder = Instance.new("Folder");
     local LayersPageLayout = Instance.new("UIPageLayout");
 
-    Chloeex.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    Chloeex.Name = "Chloeex"
-    Chloeex.ResetOnSpawn = false
-    Chloeex.Parent = game:GetService("CoreGui")
+    NatUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    NatUI.Name = "NatUI"
+    NatUI.ResetOnSpawn = false
+    NatUI.Parent = game:GetService("CoreGui")
 
     DropShadowHolder.BackgroundTransparency = 1
     DropShadowHolder.BorderSizePixel = 0
@@ -521,10 +521,10 @@ function Chloex:Window(GuiConfig)
     end
     DropShadowHolder.ZIndex = 0
     DropShadowHolder.Name = "DropShadowHolder"
-    DropShadowHolder.Parent = Chloeex
+    DropShadowHolder.Parent = NatUI
 
-    DropShadowHolder.Position = UDim2.new(0, (Chloeex.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
-        (Chloeex.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
+    DropShadowHolder.Position = UDim2.new(0, (NatUI.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
+        (NatUI.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
     DropShadow.Image = "rbxassetid://6015897843"
     DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
     DropShadow.ImageTransparency = 1
@@ -747,8 +747,8 @@ function Chloex:Window(GuiConfig)
     ScrollTab.ChildRemoved:Connect(UpdateSize1)
 
     function GuiFunc:DestroyGui()
-        if CoreGui:FindFirstChild("Chloeex") then
-            Chloeex:Destroy()
+        if CoreGui:FindFirstChild("NatUI") then
+            NatUI:Destroy()
         end
     end
 
@@ -854,7 +854,7 @@ function Chloex:Window(GuiConfig)
         Instance.new("UICorner", Cancel).CornerRadius = UDim.new(0, 6)
 
         Yes.MouseButton1Click:Connect(function()
-            if Chloeex then Chloeex:Destroy() end
+            if NatUI then NatUI:Destroy() end
             if game.CoreGui:FindFirstChild("ToggleUIButton") then
                 game.CoreGui.ToggleUIButton:Destroy()
             end
@@ -1108,7 +1108,7 @@ function Chloex:Window(GuiConfig)
         TabButton.Parent = Tab
 
         TabName.Font = Enum.Font.GothamBold
-        TabName.Text = "- " .. tostring(TabConfig.Name)
+        TabName.Text = "[ " .. tostring(TabConfig.Name) .. " ]"
         TabName.TextColor3 = Color3.fromRGB(255, 255, 255)
         TabName.TextSize = 13
         TabName.TextXAlignment = Enum.TextXAlignment.Left
