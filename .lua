@@ -1,17 +1,17 @@
 local HttpService = game:GetService("HttpService")
 
-if not isfolder("VagoX") then
-    makefolder("VagoX")
+if not isfolder("NatHub") then
+    makefolder("NatHub")
 end
-if not isfolder("VagoX/Config") then
-    makefolder("VagoX/Config")
+if not isfolder("NatHub/Config") then
+    makefolder("NatHub/Config")
 end
 
 local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
-local ConfigFile = "VagoX/Config/" .. gameName .. ".json"
+local ConfigFile = "NatHub/Config/" .. gameName .. ".json"
 
 ConfigData       = {}
 Elements         = {}
@@ -263,7 +263,7 @@ end
 local Chloex = {}
 function Chloex:MakeNotify(NotifyConfig)
     local NotifyConfig = NotifyConfig or {}
-    NotifyConfig.Title = NotifyConfig.Title or "Chloe X"
+    NotifyConfig.Title = NotifyConfig.Title or "NatHub"
     NotifyConfig.Description = NotifyConfig.Description or "Notification"
     NotifyConfig.Content = NotifyConfig.Content or "Content"
     NotifyConfig.Color = NotifyConfig.Color or Color3.fromRGB(255, 0, 255)
@@ -461,7 +461,7 @@ end
 
 function than(msg, delay, color, title, desc)
     return Chloex:MakeNotify({
-        Title = title or "VagoX",
+        Title = title or "NatHub",
         Description = desc or "Notification",
         Content = msg or "Content",
         Color = color or Color3.fromRGB(0, 208, 255),
@@ -471,8 +471,8 @@ end
 
 function Chloex:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
-    GuiConfig.Title        = GuiConfig.Title or "Chloe X"
-    GuiConfig.Footer       = GuiConfig.Footer or "Chloee :3"
+    GuiConfig.Title        = GuiConfig.Title or "NatHub"
+    GuiConfig.Footer       = GuiConfig.Footer or ""
     GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(255, 0, 255)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
@@ -805,7 +805,7 @@ function Chloex:Window(GuiConfig)
         Title.Position = UDim2.new(0, 0, 0, 4)
         Title.BackgroundTransparency = 1
         Title.Font = Enum.Font.GothamBold
-        Title.Text = "Chloe X Window"
+        Title.Text = "NatHub Window"
         Title.TextSize = 22
         Title.TextColor3 = Color3.fromRGB(255, 255, 255)
         Title.ZIndex = 52
@@ -1108,7 +1108,7 @@ function Chloex:Window(GuiConfig)
         TabButton.Parent = Tab
 
         TabName.Font = Enum.Font.GothamBold
-        TabName.Text = "| " .. tostring(TabConfig.Name)
+        TabName.Text = "- " .. tostring(TabConfig.Name)
         TabName.TextColor3 = Color3.fromRGB(255, 255, 255)
         TabName.TextSize = 13
         TabName.TextXAlignment = Enum.TextXAlignment.Left
