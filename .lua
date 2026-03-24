@@ -1,17 +1,17 @@
 local HttpService = game:GetService("HttpService")
 
-if not isfolder("NatHub") then
-    makefolder("NatHub")
+if not isfolder("WisHub") then
+    makefolder("WisHub")
 end
-if not isfolder("NatHub/Config") then
-    makefolder("NatHub/Config")
+if not isfolder("WisHub/Config") then
+    makefolder("WisHub/Config")
 end
 
 local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 gameName         = gameName:gsub("[^%w_ ]", "")
 gameName         = gameName:gsub("%s+", "_")
 
-local ConfigFile = "NatHub/Config/" .. gameName .. ".json"
+local ConfigFile = "WisHub/Config/" .. gameName .. ".json"
 
 ConfigData       = {}
 Elements         = {}
@@ -263,7 +263,7 @@ end
 local Chloex = {}
 function Chloex:MakeNotify(NotifyConfig)
     local NotifyConfig = NotifyConfig or {}
-    NotifyConfig.Title = NotifyConfig.Title or "NatHub"
+    NotifyConfig.Title = NotifyConfig.Title or "WisHub"
     NotifyConfig.Description = NotifyConfig.Description or "Notification"
     NotifyConfig.Content = NotifyConfig.Content or "Content"
     NotifyConfig.Color = NotifyConfig.Color or Color3.fromRGB(255, 0, 255)
@@ -461,7 +461,7 @@ end
 
 function than(msg, delay, color, title, desc)
     return Chloex:MakeNotify({
-        Title = title or "NatHub",
+        Title = title or "WisHub",
         Description = desc or "Notification",
         Content = msg or "Content",
         Color = color or Color3.fromRGB(0, 208, 255),
@@ -471,7 +471,7 @@ end
 
 function Chloex:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
-    GuiConfig.Title        = GuiConfig.Title or "NatHub"
+    GuiConfig.Title        = GuiConfig.Title or "WisHub"
     GuiConfig.Footer       = GuiConfig.Footer or ""
     GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(255, 0, 255)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
@@ -805,7 +805,7 @@ function Chloex:Window(GuiConfig)
         Title.Position = UDim2.new(0, 0, 0, 4)
         Title.BackgroundTransparency = 1
         Title.Font = Enum.Font.GothamBold
-        Title.Text = "NatHub Window"
+        Title.Text = "WisHub Window"
         Title.TextSize = 22
         Title.TextColor3 = Color3.fromRGB(255, 255, 255)
         Title.ZIndex = 52
