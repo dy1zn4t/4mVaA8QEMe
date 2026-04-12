@@ -2170,6 +2170,7 @@ function Chloex:Window(GuiConfig)
                 InputConfig.Content = InputConfig.Content or ""
                 InputConfig.Callback = InputConfig.Callback or function() end
                 InputConfig.Default = InputConfig.Default or ""
+                InputConfig.Placeholder = InputConfig.Placeholder or "Input Here"
 
                 local configKey = "Input_" .. InputConfig.Title
                 if ConfigData[configKey] ~= nil then
@@ -2262,7 +2263,7 @@ function Chloex:Window(GuiConfig)
                 InputTextBox.Font = Enum.Font.GothamBold
                 InputTextBox.PlaceholderColor3 = Color3.fromRGB(120.00000044703484, 120.00000044703484,
                     120.00000044703484)
-                InputTextBox.PlaceholderText = "Input Here"
+                InputTextBox.PlaceholderText = InputConfig.Placeholder
                 InputTextBox.Text = InputConfig.Default
                 InputTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
                 InputTextBox.TextSize = 12
