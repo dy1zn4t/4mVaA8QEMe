@@ -874,7 +874,7 @@ function Chloex:Window(GuiConfig)
         local MainButton = Instance.new("ImageLabel")
         MainButton.Parent = ScreenGui
         MainButton.Size = UDim2.new(0, 50, 0, 50)
-        MainButton.Position = UDim2.new(0, 50, 0, 50)
+        MainButton.Position = UDim2.new(0, 200, 0, 600)
         MainButton.BackgroundTransparency = 1
         MainButton.Image = "rbxassetid://" .. GuiConfig.Image
         MainButton.ScaleType = Enum.ScaleType.Fit
@@ -2607,9 +2607,11 @@ function Chloex:Window(GuiConfig)
                     newList = newList or {}
                     selecting = selecting or (DropdownConfig.Multi and {} or nil)
                     DropdownFunc:Clear()
-                    for _, v in ipairs(newList) do
-                        DropdownFunc:AddOption(v)
-                    end
+                    task.spawn(function()
+                        for _, v in ipairs(newList) do
+                            DropdownFunc:AddOption(v)
+                        end
+                    end)
                     DropdownFunc.Options = newList
                     DropdownFunc:Set(selecting)
                 end
