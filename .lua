@@ -874,7 +874,7 @@ function Chloex:Window(GuiConfig)
         local MainButton = Instance.new("ImageLabel")
         MainButton.Parent = ScreenGui
         MainButton.Size = UDim2.new(0, 50, 0, 50)
-        MainButton.Position = UDim2.new(0, 200, 0, 600)
+        MainButton.Position = UDim2.new(0, 20, 0, 100)
         MainButton.BackgroundTransparency = 1
         MainButton.Image = "rbxassetid://" .. GuiConfig.Image
         MainButton.ScaleType = Enum.ScaleType.Fit
