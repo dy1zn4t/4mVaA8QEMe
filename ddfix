@@ -308,9 +308,9 @@ function Chloex:MakeNotify(NotifyConfig)
         local NotifyFrame = Instance.new("Frame");
         local NotifyFrameReal = Instance.new("Frame");
         local UICorner = Instance.new("UICorner");
-        local DropShadowHolder = Instance.new("Frame");
-        local DropShadow = Instance.new("ImageLabel");
-        local Top = Instance.new("Frame");
+        local ShadowHolder = Instance.new("Frame");
+        local Drop_Shadow = Instance.new("ImageLabel");
+        local TopFrame = Instance.new("Frame");
         local TextLabel = Instance.new("TextLabel");
         local UICorner1 = Instance.new("UICorner");
         local TextLabel1 = Instance.new("TextLabel");
@@ -339,20 +339,20 @@ function Chloex:MakeNotify(NotifyConfig)
         UICorner.Parent = NotifyFrameReal
         UICorner.CornerRadius = UDim.new(0, 8)
 
-        DropShadowHolder.BackgroundTransparency = 1
-        DropShadowHolder.BorderSizePixel = 0
-        DropShadowHolder.Size = UDim2.new(1, 0, 1, 0)
-        DropShadowHolder.ZIndex = 0
-        DropShadowHolder.Name = "DropShadowHolder"
-        DropShadowHolder.Parent = NotifyFrameReal
+        ShadowHolder.BackgroundTransparency = 1
+        ShadowHolder.BorderSizePixel = 0
+        ShadowHolder.Size = UDim2.new(1, 0, 1, 0)
+        ShadowHolder.ZIndex = 0
+        ShadowHolder.Name = "ShadowHolder"
+        ShadowHolder.Parent = NotifyFrameReal
 
-        Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        Top.BackgroundTransparency = 0.9990000128746033
-        Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        Top.BorderSizePixel = 0
-        Top.Size = UDim2.new(1, 0, 0, 36)
-        Top.Name = "Top"
-        Top.Parent = NotifyFrameReal
+        TopFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        TopFrame.BackgroundTransparency = 0.9990000128746033
+        TopFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TopFrame.BorderSizePixel = 0
+        TopFrame.Size = UDim2.new(1, 0, 0, 36)
+        TopFrame.Name = "TopFrame"
+        TopFrame.Parent = NotifyFrameReal
 
         TextLabel.Font = Enum.Font.GothamBold
         TextLabel.Text = NotifyConfig.Title
@@ -364,10 +364,10 @@ function Chloex:MakeNotify(NotifyConfig)
         TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
         TextLabel.BorderSizePixel = 0
         TextLabel.Size = UDim2.new(1, 0, 1, 0)
-        TextLabel.Parent = Top
+        TextLabel.Parent = TopFrame
         TextLabel.Position = UDim2.new(0, 10, 0, 0)
 
-        UICorner1.Parent = Top
+        UICorner1.Parent = TopFrame
         UICorner1.CornerRadius = UDim.new(0, 5)
 
         TextLabel1.Font = Enum.Font.GothamBold
@@ -381,7 +381,7 @@ function Chloex:MakeNotify(NotifyConfig)
         TextLabel1.BorderSizePixel = 0
         TextLabel1.Size = UDim2.new(1, 0, 1, 0)
         TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 15, 0, 0)
-        TextLabel1.Parent = Top
+        TextLabel1.Parent = TopFrame
 
         Close.Font = Enum.Font.SourceSans
         Close.Text = ""
@@ -395,7 +395,7 @@ function Chloex:MakeNotify(NotifyConfig)
         Close.Position = UDim2.new(1, -5, 0.5, 0)
         Close.Size = UDim2.new(0, 25, 0, 25)
         Close.Name = "Close"
-        Close.Parent = Top
+        Close.Parent = TopFrame
 
         ImageLabel.Image = "rbxassetid://9886659671"
         ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -412,7 +412,7 @@ function Chloex:MakeNotify(NotifyConfig)
         TextLabel2.TextSize = 13
         TextLabel2.Text = NotifyConfig.Content
         TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
-        TextLabel2.TextYAlignment = Enum.TextYAlignment.Top
+        TextLabel2.TextYAlignment = Enum.TextYAlignment.TopFrame
         TextLabel2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel2.BackgroundTransparency = 0.9990000128746033
         TextLabel2.TextColor3 = Color3.fromRGB(150.0000062584877, 150.0000062584877, 150.0000062584877)
@@ -483,11 +483,11 @@ function Chloex:Window(GuiConfig)
     local GuiFunc = {}
 
     local NatUI = Instance.new("ScreenGui");
-    local DropShadowHolder = Instance.new("Frame");
-    local DropShadow = Instance.new("ImageLabel");
-    local Main = Instance.new("Frame");
+    local ShadowHolder = Instance.new("Frame");
+    local Drop_Shadow = Instance.new("ImageLabel");
+    local MainFrame = Instance.new("Frame");
     local UICorner = Instance.new("UICorner");
-    local Top = Instance.new("Frame");
+    local TopFrame = Instance.new("Frame");
     local TextLabel = Instance.new("TextLabel");
     local UICorner1 = Instance.new("UICorner");
     local TextLabel1 = Instance.new("TextLabel");
@@ -495,7 +495,7 @@ function Chloex:Window(GuiConfig)
     local ImageLabel1 = Instance.new("ImageLabel");
     local Min = Instance.new("TextButton");
     local ImageLabel2 = Instance.new("ImageLabel");
-    local LayersTab = Instance.new("Frame");
+    local LayerTab = Instance.new("Frame");
     local UICorner2 = Instance.new("UICorner");
     local DecideFrame = Instance.new("Frame");
     local Layers = Instance.new("Frame");
@@ -510,64 +510,64 @@ function Chloex:Window(GuiConfig)
     NatUI.ResetOnSpawn = false
     NatUI.Parent = game:GetService("CoreGui")
 
-    DropShadowHolder.BackgroundTransparency = 1
-    DropShadowHolder.BorderSizePixel = 0
-    DropShadowHolder.AnchorPoint = Vector2.new(0.5, 0.5)
-    DropShadowHolder.Position = UDim2.new(0.5, 0, 0.5, 0)
+    ShadowHolder.BackgroundTransparency = 1
+    ShadowHolder.BorderSizePixel = 0
+    ShadowHolder.AnchorPoint = Vector2.new(0.5, 0.5)
+    ShadowHolder.Position = UDim2.new(0.5, 0, 0.5, 0)
     if isMobile then
-        DropShadowHolder.Size = safeSize(470, 270)
+        ShadowHolder.Size = safeSize(470, 270)
     else
-        DropShadowHolder.Size = safeSize(640, 400)
+        ShadowHolder.Size = safeSize(640, 400)
     end
-    DropShadowHolder.ZIndex = 0
-    DropShadowHolder.Name = "DropShadowHolder"
-    DropShadowHolder.Parent = NatUI
+    ShadowHolder.ZIndex = 0
+    ShadowHolder.Name = "ShadowHolder"
+    ShadowHolder.Parent = NatUI
 
-    DropShadowHolder.Position = UDim2.new(0, (NatUI.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
-        (NatUI.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
-    DropShadow.Image = "rbxassetid://6015897843"
-    DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
-    DropShadow.ImageTransparency = 1
-    DropShadow.ScaleType = Enum.ScaleType.Slice
-    DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-    DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-    DropShadow.BackgroundTransparency = 1
-    DropShadow.BorderSizePixel = 0
-    DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-    DropShadow.Size = UDim2.new(1, 47, 1, 47)
-    DropShadow.ZIndex = 0
-    DropShadow.Name = "DropShadow"
-    DropShadow.Parent = DropShadowHolder
+    ShadowHolder.Position = UDim2.new(0, (NatUI.AbsoluteSize.X // 2 - ShadowHolder.Size.X.Offset // 2), 0,
+        (NatUI.AbsoluteSize.Y // 2 - ShadowHolder.Size.Y.Offset // 2))
+    Drop_Shadow.Image = "rbxassetid://6015897843"
+    Drop_Shadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
+    Drop_Shadow.ImageTransparency = 1
+    Drop_Shadow.ScaleType = Enum.ScaleType.Slice
+    Drop_Shadow.SliceCenter = Rect.new(49, 49, 450, 450)
+    Drop_Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    Drop_Shadow.BackgroundTransparency = 1
+    Drop_Shadow.BorderSizePixel = 0
+    Drop_Shadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Drop_Shadow.Size = UDim2.new(1, 47, 1, 47)
+    Drop_Shadow.ZIndex = 0
+    Drop_Shadow.Name = "Drop_Shadow"
+    Drop_Shadow.Parent = ShadowHolder
 
     if GuiConfig.Theme then
-        Main:Destroy()
-        Main = Instance.new("ImageLabel")
-        Main.Image = "rbxassetid://" .. GuiConfig.Theme
-        Main.ScaleType = Enum.ScaleType.Crop
-        Main.BackgroundTransparency = 1
-        Main.ImageTransparency = GuiConfig.ThemeTransparency or 0.15
+        MainFrame:Destroy()
+        MainFrame = Instance.new("ImageLabel")
+        MainFrame.Image = "rbxassetid://" .. GuiConfig.Theme
+        MainFrame.ScaleType = Enum.ScaleType.Crop
+        MainFrame.BackgroundTransparency = 1
+        MainFrame.ImageTransparency = GuiConfig.ThemeTransparency or 0.15
     else
-        Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        Main.BackgroundTransparency = 0
+        MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        MainFrame.BackgroundTransparency = 0
     end
 
-    Main.AnchorPoint = Vector2.new(0.5, 0.5)
-    Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Main.BorderSizePixel = 0
-    Main.Position = UDim2.new(0.5, 0, 0.5, 0)
-    Main.Size = UDim2.new(1, -47, 1, -47)
-    Main.Name = "Main"
-    Main.Parent = DropShadow
+    MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+    MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    MainFrame.BorderSizePixel = 0
+    MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+    MainFrame.Size = UDim2.new(1, -47, 1, -47)
+    MainFrame.Name = "MainFrame"
+    MainFrame.Parent = Drop_Shadow
 
-    UICorner.Parent = Main
+    UICorner.Parent = MainFrame
 
-    Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Top.BackgroundTransparency = 0.9990000128746033
-    Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Top.BorderSizePixel = 0
-    Top.Size = UDim2.new(1, 0, 0, 38)
-    Top.Name = "Top"
-    Top.Parent = Main
+    TopFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TopFrame.BackgroundTransparency = 0.9990000128746033
+    TopFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    TopFrame.BorderSizePixel = 0
+    TopFrame.Size = UDim2.new(1, 0, 0, 38)
+    TopFrame.Name = "TopFrame"
+    TopFrame.Parent = MainFrame
 
     TextLabel.Font = Enum.Font.GothamBold
     TextLabel.Text = GuiConfig.Title
@@ -580,9 +580,9 @@ function Chloex:Window(GuiConfig)
     TextLabel.BorderSizePixel = 0
     TextLabel.Size = UDim2.new(1, -100, 1, 0)
     TextLabel.Position = UDim2.new(0, 10, 0, 0)
-    TextLabel.Parent = Top
+    TextLabel.Parent = TopFrame
 
-    UICorner1.Parent = Top
+    UICorner1.Parent = TopFrame
 
     TextLabel1.Font = Enum.Font.GothamBold
     TextLabel1.Text = GuiConfig.Footer
@@ -595,7 +595,7 @@ function Chloex:Window(GuiConfig)
     TextLabel1.BorderSizePixel = 0
     TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
     TextLabel1.Position = UDim2.new(0, TextLabel.TextBounds.X + 15, 0, 0)
-    TextLabel1.Parent = Top
+    TextLabel1.Parent = TopFrame
 
     Close.Font = Enum.Font.SourceSans
     Close.Text = ""
@@ -609,7 +609,7 @@ function Chloex:Window(GuiConfig)
     Close.Position = UDim2.new(1, -8, 0.5, 0)
     Close.Size = UDim2.new(0, 25, 0, 25)
     Close.Name = "Close"
-    Close.Parent = Top
+    Close.Parent = TopFrame
 
     ImageLabel1.Image = "rbxassetid://9886659671"
     ImageLabel1.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -633,7 +633,7 @@ function Chloex:Window(GuiConfig)
     Min.Position = UDim2.new(1, -38, 0.5, 0)
     Min.Size = UDim2.new(0, 25, 0, 25)
     Min.Name = "Min"
-    Min.Parent = Top
+    Min.Parent = TopFrame
 
     ImageLabel2.Image = "rbxassetid://9886659276"
     ImageLabel2.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -646,17 +646,17 @@ function Chloex:Window(GuiConfig)
     ImageLabel2.Size = UDim2.new(1, -9, 1, -9)
     ImageLabel2.Parent = Min
 
-    LayersTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    LayersTab.BackgroundTransparency = 0.9990000128746033
-    LayersTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    LayersTab.BorderSizePixel = 0
-    LayersTab.Position = UDim2.new(0, 9, 0, 50)
-    LayersTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)
-    LayersTab.Name = "LayersTab"
-    LayersTab.Parent = Main
+    LayerTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    LayerTab.BackgroundTransparency = 0.9990000128746033
+    LayerTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    LayerTab.BorderSizePixel = 0
+    LayerTab.Position = UDim2.new(0, 9, 0, 50)
+    LayerTab.Size = UDim2.new(0, GuiConfig["Tab Width"], 1, -59)
+    LayerTab.Name = "LayerTab"
+    LayerTab.Parent = MainFrame
 
     UICorner2.CornerRadius = UDim.new(0, 2)
-    UICorner2.Parent = LayersTab
+    UICorner2.Parent = LayerTab
 
     DecideFrame.AnchorPoint = Vector2.new(0.5, 0)
     DecideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -666,7 +666,7 @@ function Chloex:Window(GuiConfig)
     DecideFrame.Position = UDim2.new(0.5, 0, 0, 38)
     DecideFrame.Size = UDim2.new(1, 0, 0, 1)
     DecideFrame.Name = "DecideFrame"
-    DecideFrame.Parent = Main
+    DecideFrame.Parent = MainFrame
 
     Layers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Layers.BackgroundTransparency = 0.9990000128746033
@@ -675,7 +675,7 @@ function Chloex:Window(GuiConfig)
     Layers.Position = UDim2.new(0, GuiConfig["Tab Width"] + 18, 0, 50)
     Layers.Size = UDim2.new(1, -(GuiConfig["Tab Width"] + 9 + 18), 1, -59)
     Layers.Name = "Layers"
-    Layers.Parent = Main
+    Layers.Parent = MainFrame
 
     UICorner6.CornerRadius = UDim.new(0, 2)
     UICorner6.Parent = Layers
@@ -728,7 +728,7 @@ function Chloex:Window(GuiConfig)
     ScrollTab.BorderSizePixel = 0
     ScrollTab.Size = UDim2.new(1, 0, 1, 0)
     ScrollTab.Name = "ScrollTab"
-    ScrollTab.Parent = LayersTab
+    ScrollTab.Parent = LayerTab
 
     UIListLayout.Padding = UDim.new(0, 3)
     UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -754,7 +754,7 @@ function Chloex:Window(GuiConfig)
 
     Min.Activated:Connect(function()
         CircleClick(Min, Mouse.X, Mouse.Y)
-        DropShadowHolder.Visible = false
+        ShadowHolder.Visible = false
     end)
     Close.Activated:Connect(function()
         CircleClick(Close, Mouse.X, Mouse.Y)
@@ -764,7 +764,7 @@ function Chloex:Window(GuiConfig)
         Overlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         Overlay.BackgroundTransparency = 0.3
         Overlay.ZIndex = 50
-        Overlay.Parent = DropShadowHolder
+        Overlay.Parent = ShadowHolder
 
         local Dialog = Instance.new("ImageLabel")
         Dialog.Size = UDim2.new(0, 300, 0, 150)
@@ -874,7 +874,7 @@ function Chloex:Window(GuiConfig)
         local MainButton = Instance.new("ImageLabel")
         MainButton.Parent = ScreenGui
         MainButton.Size = UDim2.new(0, 50, 0, 50)
-        MainButton.Position = UDim2.new(0, 200, 0, 600)
+        MainButton.Position = UDim2.new(0, 20, 0, 100)
         MainButton.BackgroundTransparency = 1
         MainButton.Image = "rbxassetid://" .. GuiConfig.Image
         MainButton.ScaleType = Enum.ScaleType.Fit
@@ -890,8 +890,8 @@ function Chloex:Window(GuiConfig)
         Button.Text = ""
 
         Button.MouseButton1Click:Connect(function()
-            if DropShadowHolder then
-                DropShadowHolder.Visible = not DropShadowHolder.Visible
+            if ShadowHolder then
+                ShadowHolder.Visible = not ShadowHolder.Visible
             end
         end)
 
@@ -930,12 +930,12 @@ function Chloex:Window(GuiConfig)
 
     GuiFunc:ToggleUI()
 
-    DropShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
-    MakeDraggable(Top, DropShadowHolder)
+    ShadowHolder.Size = UDim2.new(0, 115 + TextLabel.TextBounds.X + 1 + TextLabel1.TextBounds.X, 0, 350)
+    MakeDraggable(TopFrame, ShadowHolder)
 
     local MoreBlur = Instance.new("Frame");
-    local DropShadowHolder1 = Instance.new("Frame");
-    local DropShadow1 = Instance.new("ImageLabel");
+    local ShadowHolder1 = Instance.new("Frame");
+    local Drop_Shadow1 = Instance.new("ImageLabel");
     local UICorner28 = Instance.new("UICorner");
     local ConnectButton = Instance.new("TextButton");
 
@@ -951,26 +951,26 @@ function Chloex:Window(GuiConfig)
     MoreBlur.Name = "MoreBlur"
     MoreBlur.Parent = Layers
 
-    DropShadowHolder1.BackgroundTransparency = 1
-    DropShadowHolder1.BorderSizePixel = 0
-    DropShadowHolder1.Size = UDim2.new(1, 0, 1, 0)
-    DropShadowHolder1.ZIndex = 0
-    DropShadowHolder1.Name = "DropShadowHolder"
-    DropShadowHolder1.Parent = MoreBlur
+    ShadowHolder1.BackgroundTransparency = 1
+    ShadowHolder1.BorderSizePixel = 0
+    ShadowHolder1.Size = UDim2.new(1, 0, 1, 0)
+    ShadowHolder1.ZIndex = 0
+    ShadowHolder1.Name = "ShadowHolder"
+    ShadowHolder1.Parent = MoreBlur
 
-    DropShadow1.Image = "rbxassetid://6015897843"
-    DropShadow1.ImageColor3 = Color3.fromRGB(0, 0, 0)
-    DropShadow1.ImageTransparency = 1
-    DropShadow1.ScaleType = Enum.ScaleType.Slice
-    DropShadow1.SliceCenter = Rect.new(49, 49, 450, 450)
-    DropShadow1.AnchorPoint = Vector2.new(0.5, 0.5)
-    DropShadow1.BackgroundTransparency = 1
-    DropShadow1.BorderSizePixel = 0
-    DropShadow1.Position = UDim2.new(0.5, 0, 0.5, 0)
-    DropShadow1.Size = UDim2.new(1, 35, 1, 35)
-    DropShadow1.ZIndex = 0
-    DropShadow1.Name = "DropShadow"
-    DropShadow1.Parent = DropShadowHolder1
+    Drop_Shadow1.Image = "rbxassetid://6015897843"
+    Drop_Shadow1.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Drop_Shadow1.ImageTransparency = 1
+    Drop_Shadow1.ScaleType = Enum.ScaleType.Slice
+    Drop_Shadow1.SliceCenter = Rect.new(49, 49, 450, 450)
+    Drop_Shadow1.AnchorPoint = Vector2.new(0.5, 0.5)
+    Drop_Shadow1.BackgroundTransparency = 1
+    Drop_Shadow1.BorderSizePixel = 0
+    Drop_Shadow1.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Drop_Shadow1.Size = UDim2.new(1, 35, 1, 35)
+    Drop_Shadow1.ZIndex = 0
+    Drop_Shadow1.Name = "Drop_Shadow"
+    Drop_Shadow1.Parent = ShadowHolder1
 
     UICorner28.Parent = MoreBlur
 
@@ -1285,7 +1285,7 @@ function Chloex:Window(GuiConfig)
             SectionTitle.TextColor3 = Color3.fromRGB(230.77499270439148, 230.77499270439148, 230.77499270439148)
             SectionTitle.TextSize = 13
             SectionTitle.TextXAlignment = Enum.TextXAlignment.Left
-            SectionTitle.TextYAlignment = Enum.TextYAlignment.Top
+            SectionTitle.TextYAlignment = Enum.TextYAlignment.TopFrame
             SectionTitle.AnchorPoint = Vector2.new(0, 0.5)
             SectionTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             SectionTitle.BackgroundTransparency = 0.9990000128746033
@@ -1472,7 +1472,7 @@ function Chloex:Window(GuiConfig)
                 ParagraphTitle.TextColor3 = Color3.fromRGB(231, 231, 231)
                 ParagraphTitle.TextSize = 13
                 ParagraphTitle.TextXAlignment = Enum.TextXAlignment.Left
-                ParagraphTitle.TextYAlignment = Enum.TextYAlignment.Top
+                ParagraphTitle.TextYAlignment = Enum.TextYAlignment.TopFrame
                 ParagraphTitle.BackgroundTransparency = 1
                 ParagraphTitle.Position = UDim2.new(0, iconOffset, 0, 10)
                 ParagraphTitle.Size = UDim2.new(1, -16, 0, 13)
@@ -1484,7 +1484,7 @@ function Chloex:Window(GuiConfig)
                 ParagraphContent.TextColor3 = Color3.fromRGB(255, 255, 255)
                 ParagraphContent.TextSize = 12
                 ParagraphContent.TextXAlignment = Enum.TextXAlignment.Left
-                ParagraphContent.TextYAlignment = Enum.TextYAlignment.Top
+                ParagraphContent.TextYAlignment = Enum.TextYAlignment.TopFrame
                 ParagraphContent.BackgroundTransparency = 1
                 ParagraphContent.Position = UDim2.new(0, iconOffset, 0, 25)
                 ParagraphContent.Name = "ParagraphContent"
@@ -1798,7 +1798,7 @@ function Chloex:Window(GuiConfig)
                 ToggleTitle.TextSize = 13
                 ToggleTitle.TextColor3 = Color3.fromRGB(231, 231, 231)
                 ToggleTitle.TextXAlignment = Enum.TextXAlignment.Left
-                ToggleTitle.TextYAlignment = Enum.TextYAlignment.Top
+                ToggleTitle.TextYAlignment = Enum.TextYAlignment.TopFrame
                 ToggleTitle.BackgroundTransparency = 1
                 ToggleTitle.Position = UDim2.new(0, 10, 0, 10)
                 ToggleTitle.Size = UDim2.new(1, -100, 0, 13)
@@ -1811,7 +1811,7 @@ function Chloex:Window(GuiConfig)
                 ToggleTitle2.TextSize = 12
                 ToggleTitle2.TextColor3 = Color3.fromRGB(231, 231, 231)
                 ToggleTitle2.TextXAlignment = Enum.TextXAlignment.Left
-                ToggleTitle2.TextYAlignment = Enum.TextYAlignment.Top
+                ToggleTitle2.TextYAlignment = Enum.TextYAlignment.TopFrame
                 ToggleTitle2.BackgroundTransparency = 1
                 ToggleTitle2.Position = UDim2.new(0, 10, 0, 23)
                 ToggleTitle2.Size = UDim2.new(1, -100, 0, 12)
@@ -1983,7 +1983,7 @@ function Chloex:Window(GuiConfig)
                 SliderTitle.TextColor3 = Color3.fromRGB(230.77499270439148, 230.77499270439148, 230.77499270439148)
                 SliderTitle.TextSize = 13
                 SliderTitle.TextXAlignment = Enum.TextXAlignment.Left
-                SliderTitle.TextYAlignment = Enum.TextYAlignment.Top
+                SliderTitle.TextYAlignment = Enum.TextYAlignment.TopFrame
                 SliderTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 SliderTitle.BackgroundTransparency = 0.9990000128746033
                 SliderTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -2204,7 +2204,7 @@ function Chloex:Window(GuiConfig)
                 InputTitle.TextColor3 = Color3.fromRGB(230.77499270439148, 230.77499270439148, 230.77499270439148)
                 InputTitle.TextSize = 13
                 InputTitle.TextXAlignment = Enum.TextXAlignment.Left
-                InputTitle.TextYAlignment = Enum.TextYAlignment.Top
+                InputTitle.TextYAlignment = Enum.TextYAlignment.TopFrame
                 InputTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 InputTitle.BackgroundTransparency = 0.9990000128746033
                 InputTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
