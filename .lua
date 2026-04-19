@@ -2608,8 +2608,11 @@ function Chloex:Window(GuiConfig)
                     selecting = selecting or (DropdownConfig.Multi and {} or nil)
                     DropdownFunc:Clear()
                     task.spawn(function()
-                        for _, v in ipairs(newList) do
+                        for i, v in ipairs(newList) do
                             DropdownFunc:AddOption(v)
+                            if i % 20 == 0 then
+                                task.wait()
+                            end
                         end
                     end)
                     DropdownFunc.Options = newList
