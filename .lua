@@ -2604,6 +2604,7 @@ function Chloex:Window(GuiConfig)
                 end
 
                 function DropdownFunc:SetValues(newList, selecting)
+                    DropdownFunc:Set(selecting)
                     newList = newList or {}
                     selecting = selecting or (DropdownConfig.Multi and {} or nil)
                     DropdownFunc:Clear()
@@ -2616,7 +2617,6 @@ function Chloex:Window(GuiConfig)
                         end
                     end)
                     DropdownFunc.Options = newList
-                    DropdownFunc:Set(selecting)
                 end
 
                 DropdownFunc:SetValues(DropdownFunc.Options, DropdownFunc.Value)
