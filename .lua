@@ -2548,51 +2548,53 @@ function Chloex:Window(GuiConfig)
                 end
 
                 function DropdownFunc:Set(Value)
-                    if DropdownConfig.Multi then
-                        DropdownFunc.Value = type(Value) == "table" and Value or {}
-                    else
-                        DropdownFunc.Value = (type(Value) == "table" and Value[1]) or Value
-                    end
+                    task.spawn(function()
+                        if DropdownConfig.Multi then
+                            DropdownFunc.Value = type(Value) == "table" and Value or {}
+                        else
+                            DropdownFunc.Value = (type(Value) == "table" and Value[1]) or Value
+                        end
 
-                    ConfigData[configKey] = DropdownFunc.Value
-                    SaveConfig()
+                        ConfigData[configKey] = DropdownFunc.Value
+                        SaveConfig()
 
-                    local texts = {}
-                    for _, Drop in ScrollSelect:GetChildren() do
-                        if Drop.Name == "Option" and Drop:FindFirstChild("OptionText") then
-                            local v = Drop:GetAttribute("RealValue")
-                            local selected = DropdownConfig.Multi and table.find(DropdownFunc.Value, v) or
-                                DropdownFunc.Value == v
+                        local texts = {}
+                        for _, Drop in ScrollSelect:GetChildren() do
+                            if Drop.Name == "Option" and Drop:FindFirstChild("OptionText") then
+                                local v = Drop:GetAttribute("RealValue")
+                                local selected = DropdownConfig.Multi and table.find(DropdownFunc.Value, v) or
+                                    DropdownFunc.Value == v
 
-                            if selected then
-                                TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.2),
-                                    { Size = UDim2.new(0, 1, 0, 12) }):Play()
-                                TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.2), { Transparency = 0 })
-                                    :Play()
-                                TweenService:Create(Drop, TweenInfo.new(0.2), { BackgroundTransparency = 0.935 }):Play()
-                                table.insert(texts, Drop.OptionText.Text)
-                            else
-                                TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.1),
-                                    { Size = UDim2.new(0, 0, 0, 0) }):Play()
-                                TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.1),
-                                    { Transparency = 0.999 }):Play()
-                                TweenService:Create(Drop, TweenInfo.new(0.1), { BackgroundTransparency = 0.999 }):Play()
+                                if selected then
+                                    TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.2),
+                                        { Size = UDim2.new(0, 1, 0, 12) }):Play()
+                                    TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.2), { Transparency = 0 })
+                                        :Play()
+                                    TweenService:Create(Drop, TweenInfo.new(0.2), { BackgroundTransparency = 0.935 }):Play()
+                                    table.insert(texts, Drop.OptionText.Text)
+                                else
+                                    TweenService:Create(Drop.ChooseFrame, TweenInfo.new(0.1),
+                                        { Size = UDim2.new(0, 0, 0, 0) }):Play()
+                                    TweenService:Create(Drop.ChooseFrame.UIStroke, TweenInfo.new(0.1),
+                                        { Transparency = 0.999 }):Play()
+                                    TweenService:Create(Drop, TweenInfo.new(0.1), { BackgroundTransparency = 0.999 }):Play()
+                                end
                             end
                         end
-                    end
 
-                    OptionSelecting.Text = (#texts == 0)
-                        and (DropdownConfig.Multi and "Select Options" or "Select Option")
-                        or table.concat(texts, ", ")
+                        OptionSelecting.Text = (#texts == 0)
+                            and (DropdownConfig.Multi and "Select Options" or "Select Option")
+                            or table.concat(texts, ", ")
 
-                    if DropdownConfig.Callback then
-                        if DropdownConfig.Multi then
-                            DropdownConfig.Callback(DropdownFunc.Value)
-                        else
-                            local str = (DropdownFunc.Value ~= nil) and tostring(DropdownFunc.Value) or ""
-                            DropdownConfig.Callback(str)
+                        if DropdownConfig.Callback then
+                            if DropdownConfig.Multi then
+                                DropdownConfig.Callback(DropdownFunc.Value)
+                            else
+                                local str = (DropdownFunc.Value ~= nil) and tostring(DropdownFunc.Value) or ""
+                                DropdownConfig.Callback(str)
+                            end
                         end
-                    end
+                    end)
                 end
 
                 function DropdownFunc:SetValue(val)
