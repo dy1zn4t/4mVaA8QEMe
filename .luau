@@ -7,9 +7,7 @@ if not isfolder("WisHub/Config") then
     makefolder("WisHub/Config")
 end
 
-local gameName   = tostring(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
-gameName         = gameName:gsub("[^%w_ ]", "")
-gameName         = gameName:gsub("%s+", "_")
+local gameName   = tostring(game.PlaceId)
 
 local ConfigFile = "WisHub/Config/" .. gameName .. ".json"
 
