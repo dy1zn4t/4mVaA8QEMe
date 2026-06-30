@@ -13,7 +13,6 @@ ConfigData       = {}
 Elements         = {}
 CURRENT_VERSION  = nil
 
--- SAFE CACHE: Only colors, NO logic changes
 local C = {
     rgb = function(r, g, b) return Color3.fromRGB(r, g, b) end,
 }
@@ -38,7 +37,6 @@ C.Colors = setmetatable({}, {__index = function(t, k)
     return presets[k] or C.rgb(255, 255, 255)
 end})
 
--- SAFE CACHE: TweenInfo with SAME values as original
 C.Tween = {
     fast = TweenInfo.new(0.1),
     normal = TweenInfo.new(0.2),
